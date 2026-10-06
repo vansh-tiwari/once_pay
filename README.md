@@ -136,3 +136,5 @@ UltraWideCam/
 **Vansh Tiwari**  
 * GitHub: [vansh](https://github.com/vansh)  
 * Email: [tiwari1998@hotmail.com](mailto:tiwari1998@hotmail.com)
+
+<!-- Architecture Note: Camera2 Physical Sensor Geometries validated for S23 Ultra -->
