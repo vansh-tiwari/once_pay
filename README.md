@@ -138,3 +138,5 @@ UltraWideCam/
 * Email: [tiwari1998@hotmail.com](mailto:tiwari1998@hotmail.com)
 
 <!-- Architecture Note: Camera2 Physical Sensor Geometries validated for S23 Ultra -->
+
+<!-- Sensor Specs: 0.6x UW (12MP, 13mm equiv, f/2.2, 120 deg FOV) -->
