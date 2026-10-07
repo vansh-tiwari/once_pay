@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing Rhythm -->
+    <dimen name="spacing_2xs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">12dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+
+    <!-- Accessibility Minimum Touch Target -->
+    <dimen name="min_touch_target">48dp</dimen>
+
+    <!-- Corner Radii -->
+    <dimen name="radius_xs">4dp</dimen>
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">14dp</dimen>
+    <dimen name="radius_lg">20dp</dimen>
+    <dimen name="radius_dock">22dp</dimen>
+    <dimen name="radius_sheet">24dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- Shutter & Controls -->
+    <dimen name="shutter_ring_size">86dp</dimen>
+    <dimen name="shutter_inner_size">70dp</dimen>
+    <dimen name="shutter_action_size">56dp</dimen>
+    <dimen name="reticle_size">220dp</dimen>
+</resources>

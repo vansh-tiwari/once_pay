@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Anti-AI-Slop: Nordic Obsidian & Mineral Mint Palette -->
+
+    <!-- Canvases & Surfaces -->
+    <color name="surface_canvas">#08090A</color>
+    <color name="surface_glass_dock">#D9111418</color>
+    <color name="surface_glass_subtle">#1AFFFFFF</color>
+    <color name="surface_sheet">#12151A</color>
+    <color name="surface_card">#16191E</color>
+    <color name="surface_card_subtle">#1D2128</color>
+    <color name="surface_sheet_card">#16191E</color>
+    <color name="surface_pill_active">#252A34</color>
+
+    <!-- Hairline Specular Bevels & Borders -->
+    <color name="border_glass">#26FFFFFF</color>
+    <color name="border_glass_active">#4DFFFFFF</color>
+    <color name="border_card">#12FFFFFF</color>
+    <color name="border_sheet">#1F242D</color>
+
+    <!-- Restrained Organic Accents (Anti-AI-Slop: No generic purple/cyan/radioactive neon) -->
+    <color name="accent_emerald">#10B981</color>            <!-- Milled Mineral Mint / Organic Jade -->
+    <color name="accent_emerald_subtle">#1F10B981</color>
+    <color name="accent_amber">#F59E0B</color>              <!-- Warm Industrial Ochre -->
+    <color name="accent_ruby">#EF4444</color>               <!-- Crimson Matte Red -->
+    <color name="accent_sapphire">#3B82F6</color>           <!-- Steel Blue -->
+
+    <!-- Typography & Glyphs -->
+    <color name="text_primary">#EDEDED</color>             <!-- Soft Optical White -->
+    <color name="text_secondary">#9CA3AF</color>           <!-- Neutral Cool Slate -->
+    <color name="text_tertiary">#6B7280</color>            <!-- Muted Gunmetal -->
+</resources>
