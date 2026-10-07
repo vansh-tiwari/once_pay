@@ -133,3 +133,5 @@ object CameraHelper {
     }
 }
 
+
+// SENSOR_INFO_PHYSICAL_SIZE & LENS_INFO_AVAILABLE_FOCAL_LENGTHS query pipeline
