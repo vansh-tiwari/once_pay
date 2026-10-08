@@ -465,3 +465,5 @@
 <!-- PreviewView configured for PERFORMANCE scale -->
 
 <!-- Aspect Ratio container with 4:3 and 16:9 states -->
+
+<!-- Fixed portrait layout with dynamic sensor rotation handling -->
