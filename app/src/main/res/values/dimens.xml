@@ -27,3 +27,6 @@
     <dimen name="shutter_action_size">56dp</dimen>
     <dimen name="reticle_size">220dp</dimen>
 </resources>
+
+    <!-- Edge-to-edge safe inset paddings -->
+    <dimen name="safe_top_margin">48dp</dimen>
