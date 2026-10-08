@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainCameraLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Fullscreen Camera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scaleType="fitCenter"/>
+
+    <!-- Tap to Focus Ring -->
+    <View
+        android:id="@+id/focusRing"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/focus_ring"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Vertical Exposure Slider (Appears on vertical drag) -->
+    <LinearLayout
+        android:id="@+id/exposureContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/tvExposure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+0.0 EV"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:background="#99000000"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <FrameLayout
+            android:id="@+id/exposureTrackContainer"
+            android:layout_width="24dp"
+            android:layout_height="140dp">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#55FFFFFF"/>
+
+            <View
+                android:id="@+id/exposureThumb"
+                android:layout_width="16dp"
+                android:layout_height="4dp"
+                android:layout_gravity="top|center_horizontal"
+                android:background="#FFFFFF"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Top Status Bar HUD (Generous top margin safely below punch-hole) -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTorch"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:text="⚡ Torch"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:stateListAnimator="@null"
+            android:background="@drawable/dock_item_bg"
+            android:paddingHorizontal="16dp"
+            android:contentDescription="Toggle flashlight torch"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRatio"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:text="📐 4:3"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:stateListAnimator="@null"
+            android:background="@drawable/dock_item_bg"
+            android:paddingHorizontal="14dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="Switch camera aspect ratio"/>
+
+        <!-- Branding & Lens Status Badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical|end"
+            android:background="@drawable/action_dock_bg"
+            android:paddingHorizontal="14dp">
+
+            <TextView
+                android:id="@+id/tvWatermark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ONCE_PAY"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:id="@+id/tvCameraStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 0.6x UW"
+                android:textColor="#00E676"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Live Recording HUD -->
+    <LinearLayout
+        android:id="@+id/recordingHud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/action_dock_bg"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/recordingBlinkDot"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/zoom_btn_selected_bg"
+            android:backgroundTint="#FF2222"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/tvRecordingTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <!-- UNIFIED CONTROL ROW (Directly above bottom shutter area)
+         Left Island: 🖼 Scan QR + 📜 History
+         Right Island: .6x / 1x / 2x Zoom Presets -->
+    <LinearLayout
+        android:id="@+id/unifiedControlRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomControls">
+
+        <!-- Left Island: Liquid Glass Rupee (₹) Payment Hub Button -->
+        <TextView
+            android:id="@+id/btnPaymentHub"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="₹"
+            android:textColor="@color/accent_emerald"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:background="@drawable/rupee_btn_bg"
+            android:contentDescription="Open ONCE_PAY payment hub"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <!-- Right Island: 0.6x Sensor Zoom Presets -->
+        <LinearLayout
+            android:id="@+id/zoomPillContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/action_dock_bg"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/btnZoom06"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:text=".6x"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/zoom_btn_selected_bg"
+                android:contentDescription="Select 0.6x Ultrawide camera lens"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/btnZoom10"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:text="1x"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:contentDescription="Select 1x crop zoom"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/btnZoom20"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:text="2x"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:contentDescription="Select 2x crop zoom"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Controls & Shutter Deck -->
+    <LinearLayout
+        android:id="@+id/bottomControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="36dp"
+        android:paddingTop="8dp"
+        android:background="#99000000"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Mode Switcher Tabs (PHOTO | VIDEO) -->
+        <LinearLayout
+            android:id="@+id/modeTabContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:id="@+id/tabPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PHOTO"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="5dp"
+                android:contentDescription="Switch to photo capture mode"/>
+
+            <TextView
+                android:id="@+id/tabVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIDEO"
+                android:textColor="#88FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="5dp"
+                android:contentDescription="Switch to video recording mode"/>
+
+        </LinearLayout>
+
+        <!-- Shutter Row: Gallery Preview | Shutter Button | Camera Flip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="32dp">
+
+            <!-- Gallery Thumbnail Preview -->
+            <FrameLayout
+                android:layout_width="56dp"
+                android:layout_height="56dp">
+
+                <ImageView
+                    android:id="@+id/ivGalleryThumbnail"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/gallery_thumbnail_bg"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true"
+                    android:contentDescription="Open device photo gallery"/>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <!-- Capture / Record Shutter Button -->
+            <FrameLayout
+                android:layout_width="86dp"
+                android:layout_height="86dp">
+
+                <View
+                    android:id="@+id/captureRing"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:background="@drawable/capture_ring"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCapture"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/capture_button_bg"
+                    android:stateListAnimator="@null"
+                    android:elevation="2dp"
+                    android:text=""
+                    android:contentDescription="Capture photo or toggle video recording"/>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <!-- Flip Camera (Front / Back) -->
+            <FrameLayout
+                android:id="@+id/btnFlipCamera"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/gallery_thumbnail_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Switch between front and rear cameras">
+
+                <TextView
+                    android:id="@+id/tvFlipIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔄"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Permission Request Overlay (Camera & Audio) -->
+    <LinearLayout
+        android:id="@+id/permissionOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#F00A0A0A"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📷"
+            android:textSize="48sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permissions Required"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvPermissionMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera and Microphone access are needed for photos, video recording, and UPI QR code payments."
+            android:textColor="#AAFFFFFF"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnGrantPermission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grant Permissions"
+            android:backgroundTint="#4488FF"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
