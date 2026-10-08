@@ -30,3 +30,6 @@
     <color name="text_secondary">#9CA3AF</color>           <!-- Neutral Cool Slate -->
     <color name="text_tertiary">#6B7280</color>            <!-- Muted Gunmetal -->
 </resources>
+
+    <!-- Translucent glass styling tokens -->
+    <color name="glass_blur_tint">#40000000</color>
