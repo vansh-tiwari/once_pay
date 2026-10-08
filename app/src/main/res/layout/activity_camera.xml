@@ -462,3 +462,4 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!-- PreviewView configured for PERFORMANCE scale -->
