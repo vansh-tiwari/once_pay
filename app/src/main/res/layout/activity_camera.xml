@@ -463,3 +463,5 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 <!-- PreviewView configured for PERFORMANCE scale -->
+
+<!-- Aspect Ratio container with 4:3 and 16:9 states -->
