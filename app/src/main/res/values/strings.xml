@@ -2,3 +2,4 @@
 <resources>
     <string name="app_name">ONCE_PAY</string>
 </resources>
+    <string name="haptic_feedback_desc">Tactile touch feedback</string>
