@@ -32,3 +32,5 @@
     <dimen name="safe_top_margin">48dp</dimen>
 
     <dimen name="zoom_pill_height">38dp</dimen>
+
+    <dimen name="pinch_sensitivity_factor">1.2dp</dimen>
