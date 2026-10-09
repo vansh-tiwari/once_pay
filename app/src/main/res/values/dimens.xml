@@ -30,3 +30,5 @@
 
     <!-- Edge-to-edge safe inset paddings -->
     <dimen name="safe_top_margin">48dp</dimen>
+
+    <dimen name="zoom_pill_height">38dp</dimen>
