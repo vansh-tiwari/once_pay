@@ -5,3 +5,5 @@
     <string name="haptic_feedback_desc">Tactile touch feedback</string>
 
     <string name="metering_active_desc">Metering focus and exposure</string>
+
+    <string name="haptic_tap_desc">Button tactile response</string>
