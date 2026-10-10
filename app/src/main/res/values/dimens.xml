@@ -34,3 +34,5 @@
     <dimen name="zoom_pill_height">38dp</dimen>
 
     <dimen name="pinch_sensitivity_factor">1.2dp</dimen>
+
+    <dimen name="exposure_slider_height">200dp</dimen>
