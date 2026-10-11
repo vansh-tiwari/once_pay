@@ -13,3 +13,5 @@
     <string name="volume_shutter_hint">Volume keys trigger capture</string>
 
     <string name="shutter_cooldown_active">Capture in progress</string>
+
+    <string name="mediastore_pending_active">Finalizing image write</string>
