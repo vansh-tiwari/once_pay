@@ -11,3 +11,5 @@
     <string name="photo_saved_success">Photo saved to gallery</string>
 
     <string name="volume_shutter_hint">Volume keys trigger capture</string>
+
+    <string name="shutter_cooldown_active">Capture in progress</string>
