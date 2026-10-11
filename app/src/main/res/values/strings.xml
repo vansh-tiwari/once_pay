@@ -7,3 +7,5 @@
     <string name="metering_active_desc">Metering focus and exposure</string>
 
     <string name="haptic_tap_desc">Button tactile response</string>
+
+    <string name="photo_saved_success">Photo saved to gallery</string>
