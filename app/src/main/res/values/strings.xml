@@ -17,3 +17,5 @@
     <string name="mediastore_pending_active">Finalizing image write</string>
 
     <string name="video_recording_started">Video recording started</string>
+
+    <string name="audio_permission_required">Microphone permission needed for audio</string>
