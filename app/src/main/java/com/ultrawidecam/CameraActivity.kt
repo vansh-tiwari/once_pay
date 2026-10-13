@@ -1155,3 +1155,5 @@ class CameraActivity : AppCompatActivity() {
 // ML Kit Vision: Zero-copy ImageProxy analyzer pipeline
 
 // Intent engine: Direct Google Pay dispatch with system chooser fallback
+
+// Security gate: RFC 3986 parameter validation and CRLF sanitization
