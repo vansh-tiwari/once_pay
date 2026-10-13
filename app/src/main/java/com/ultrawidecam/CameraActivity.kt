@@ -1151,3 +1151,5 @@ class CameraActivity : AppCompatActivity() {
 // Metering engine: Tap-to-focus with 3s auto-reset
 
 // Capture engine: Scoped MediaStore with IS_PENDING write lifecycle
+
+// ML Kit Vision: Zero-copy ImageProxy analyzer pipeline
