@@ -1153,3 +1153,5 @@ class CameraActivity : AppCompatActivity() {
 // Capture engine: Scoped MediaStore with IS_PENDING write lifecycle
 
 // ML Kit Vision: Zero-copy ImageProxy analyzer pipeline
+
+// Intent engine: Direct Google Pay dispatch with system chooser fallback
