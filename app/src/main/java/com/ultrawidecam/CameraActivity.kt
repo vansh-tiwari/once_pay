@@ -1147,3 +1147,5 @@ class CameraActivity : AppCompatActivity() {
     }
 }
 // Zoom engine: 0.6x UW, 1.0x Wide, 2.0x Tele
+
+// Metering engine: Tap-to-focus with 3s auto-reset
