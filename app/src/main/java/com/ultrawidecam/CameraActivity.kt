@@ -1146,3 +1146,4 @@ class CameraActivity : AppCompatActivity() {
         cameraExecutor.shutdown()
     }
 }
+// Zoom engine: 0.6x UW, 1.0x Wide, 2.0x Tele
