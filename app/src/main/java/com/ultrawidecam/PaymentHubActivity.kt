@@ -331,3 +331,5 @@ class PaymentHubActivity : AppCompatActivity() {
         } catch (_: Exception) {}
     }
 }
+
+// Inset fix: NestedScrollView viewport weight handling
