@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/paymentSheetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/sheet_background"
+    android:paddingBottom="28dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:id="@+id/dragHandle"
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/drag_handle"/>
+
+    <!-- Header Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ "
+            android:textColor="@color/accent_emerald"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PAYMENT QR DETECTED"
+            android:textColor="@color/accent_emerald"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:fontFamily="sans-serif-medium"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnCloseSheet"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@color/text_secondary"
+            android:contentDescription="Close payment sheet"
+            android:scaleType="centerInside"/>
+
+    </LinearLayout>
+
+    <!-- Merchant Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_item_bg"
+        android:layout_marginHorizontal="20dp"
+        android:padding="16dp"
+        android:layout_marginBottom="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Avatar Initials -->
+            <TextView
+                android:id="@+id/tvMerchantAvatar"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/zoom_pill_bg"
+                android:backgroundTint="@color/accent_emerald_subtle"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="@color/accent_emerald"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginEnd="14dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMerchantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Merchant Name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+                <!-- Copyable VPA Chip -->
+                <LinearLayout
+                    android:id="@+id/chipCopyVpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/chip_copy_bg"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginTop="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Copy UPI ID to clipboard">
+
+                    <TextView
+                        android:id="@+id/tvPayeeVpa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="merchant@bank"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  📋"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Amount / Prompt Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border_card"
+            android:layout_marginVertical="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AMOUNT"
+                android:textColor="@color/text_tertiary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvPaymentAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter in app"
+                android:textColor="@color/accent_emerald"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 1-Tap UPI Launchers Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INSTANT PAY WITH UPI APPS"
+        android:textColor="@color/text_tertiary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Installed UPI Apps Horizontal Scroller -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:id="@+id/containerUpiApps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"/>
+
+    </HorizontalScrollView>
+
+    <!-- Fallback / All Apps Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAllUpiApps"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/dock_item_bg"
+        android:text="All Payment Apps (System Chooser)"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:contentDescription="Open system app chooser for UPI payment"/>
+
+</LinearLayout>
