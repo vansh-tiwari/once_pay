@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btnUpiApp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="76dp"
+    android:minHeight="68dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/upi_app_item_bg"
+    android:padding="8dp"
+    android:layout_marginEnd="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/ivUpiAppIcon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="centerInside"
+        android:layout_marginBottom="6dp"
+        android:contentDescription="UPI App Icon"/>
+
+    <TextView
+        android:id="@+id/tvUpiAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPay"
+        android:textColor="@color/text_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+</LinearLayout>
