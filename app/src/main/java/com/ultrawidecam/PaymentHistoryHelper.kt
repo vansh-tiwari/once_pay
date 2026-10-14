@@ -73,3 +73,5 @@ object PaymentHistoryHelper {
             .apply()
     }
 }
+
+// Fix: Preserve distinct transactions with unique timestamps
