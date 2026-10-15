@@ -146,3 +146,6 @@ sequenceDiagram
 
 
 <!-- Hardware Pinning & Intent Routing Topology Verified -->
+
+
+<!-- Frame Latency SLA: <16.6ms at 60 FPS -->
