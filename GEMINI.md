@@ -155,3 +155,6 @@ Architectural roadmap for bidirectional low-latency audio/video streaming via We
 * **Audio Feed**: Half-duplex 16 kHz PCM microphone capture synchronized with camera timestamps.
 * **Video Feed**: 1 frame per second keyframe stream (JPEG) sent over secure WebSocket channels to the Gemini Live endpoint.
 * **Client Handshake**: Declarative tool invocation enabling hands-free voice-guided camera controls (e.g., *"Switch to 0.6x ultrawide"*, *"Lock focus on the receipt"*).
+
+
+<!-- Certified Defense-In-Depth Multimodal Safety Gate -->
